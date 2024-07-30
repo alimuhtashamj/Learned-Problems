@@ -1,0 +1,29 @@
+import math
+unit_of_radius = 'cm'
+unit_of_area = 'cm^2'
+unit_of_diameter = 'cm' 
+class Circle:
+    def __init__(self, radius,):
+        self.radius = radius 
+    def calculate_area(self):
+        return math.pi*self.radius**2 #**2 is squared to 2
+    def calculate_diameter(self):
+        return self.radius*2 
+#circle = Circle(radius_value)
+# Call the methods on the instance
+#area = circle.calculate_area()
+#diameter = circle.calculate_diameter()
+radius_value  = Circle(int(input(f'Enter Radius ({unit_of_radius}):')))
+area = radius_value.calculate_area()
+diameter = radius_value.calculate_diameter()
+#use radius_value in the if statement because radius_value 
+# is an instance of the Circle class, not an integer. 
+# The if statement needs to compare a numerical value 
+#(the radius) rather than the entire object.
+
+#radius_value.radius is an attribute of that instance that
+#holds the numerical radius value.
+if radius_value.radius < 4:
+   print(f'The value of Area is {round(area)} {unit_of_area}')
+else:
+    print(f'The value of diameter is {diameter:.2f} {unit_of_diameter}')
