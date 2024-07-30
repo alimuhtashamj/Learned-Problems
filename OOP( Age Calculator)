@@ -1,0 +1,28 @@
+#Write a Python program to create a person class. 
+#Include attributes  like name, country and date of birth. I
+#mplement a method to  determine the person's age.
+
+from datetime import date 
+class Person:
+    def __init__(self, name, country, dob):
+      self.name = name 
+      self.country = country
+      self.dob = dob 
+
+    def calculate_age(self):
+       today = date.today() # for present date
+       age = today.year - self.dob.year # calculates the difference of years 
+       if today < date(today.year, self.dob.month, self.dob.day):
+          #checks if the current date has passed the birthday or not this year
+          age -= 1
+        #Subtracts one year if the birthday has not yet occurred this year.
+       return age 
+    
+person1 = Person('Ali', 'Pakistan', date(2001,11,12))
+person2 = Person('Test', 'Python', date(2002,11,11))
+name_of_person1 = person1.name
+name_of_person2 = person2.name
+age_of_person1 = person1.calculate_age()
+age_of_person2 = person2.calculate_age()
+print(f'The age of {name_of_person1} is {age_of_person1}')
+print(f'The age of {name_of_person2} is {age_of_person2}')
